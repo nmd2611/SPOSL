@@ -71,12 +71,14 @@ public class FCFS {
             }
             currentTime += p[i].BurstTime;
             
-            p[i].TurnAroundTime = p[i].WaitingTime + p[i].BurstTime;
+            p[i].setTurnAroundTime();
 
             awt += p[i].WaitingTime;
             att += p[i].TurnAroundTime;
 
-            p[i].display(currentTime);
+            p[i].CompletionTime = currentTime;
+
+            p[i].display();
         }
 
         awt /= n;

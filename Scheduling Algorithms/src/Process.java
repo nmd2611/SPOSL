@@ -6,6 +6,7 @@ public class Process {
 	public int ArrivalTime;
 	public int WaitingTime;
 	public int TurnAroundTime;
+	public int CompletionTime;
 	public static Scanner sc = new Scanner(System.in);
 	
 	public void createProcess(int i) {
@@ -23,7 +24,7 @@ public class Process {
 		TurnAroundTime = BurstTime + WaitingTime;
 	}
 
-	public void display(int CompletionTime) {
+	public void display() {
 		System.out.println("     P" + ProcessName + "\t\t\t" + ArrivalTime + "\t\t" + BurstTime +"\t\t" + WaitingTime + "\t\t" + TurnAroundTime + "\t \t \t" + CompletionTime);
 
 	}
