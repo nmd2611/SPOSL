@@ -31,7 +31,7 @@ public class FCFS {
             System.out.println("Process P" + (i+1) + ":");
 
             p[i] = new Process();
-            p[i].createProcess(i+1);
+            p[i].createProcess(i+1, "no priority");
         }
 
         // sorting processes in ascending order of arrival time
@@ -78,7 +78,7 @@ public class FCFS {
 
             p[i].CompletionTime = currentTime;
 
-            p[i].display();
+            p[i].display("not priority");
         }
 
         awt /= n;

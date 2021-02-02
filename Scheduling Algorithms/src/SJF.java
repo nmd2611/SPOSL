@@ -1,5 +1,4 @@
 import java.util.*;
-
 public class SJF {
     /*
         SJF - Shortest Job First, also known as SRTF - Shortest Remaining Time First.
@@ -14,7 +13,7 @@ public class SJF {
             System.out.println("Process P" + (i+1) + ":");
 
             p[i] = new Process();
-            p[i].createProcess(i+1);
+            p[i].createProcess(i+1, "no priority");
         }
 
         //sorting processes in ascending order of arrival time
@@ -110,7 +109,7 @@ public class SJF {
             awt += p[i].WaitingTime;
             att += p[i].TurnAroundTime;
 
-            p[i].display();
+            p[i].display("not priority");
         }
 
         awt /= n;
