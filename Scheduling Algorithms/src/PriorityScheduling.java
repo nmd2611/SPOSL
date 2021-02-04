@@ -79,8 +79,8 @@ public class PriorityScheduling {
 
         nonPremptive(n);
 
-        double awt=0.0,att=0.0;
-        int currentTime = 0;
-        int i;
+        // double awt=0.0,att=0.0;
+        // int currentTime = 0;
+        // int i;
     }
 }
