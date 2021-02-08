@@ -13,7 +13,7 @@ public class PriorityScheduling {
             System.out.println("Process P" + (i+1) + ":");
 
             p[i] = new Process();
-            p[i].ProcessName = i;
+            p[i].ProcessName = i+1;
 
             System.out.print("Enter Burst Time : ");
             p[i].BurstTime = sc.nextInt();
@@ -39,23 +39,26 @@ public class PriorityScheduling {
         double awt=0.0,att=0.0;
         int currentTime = 0;
         
-        System.out.println("ProcessName \t BurstTime \t WaitingTime \t TurnAroundTime \t CompletionTime ");
-
-
+        
+        System.out.println("Gantt Chart : ");
         for(i=0;i<n;i++)
         {
+            System.out.print(currentTime + "  P"+ p[i].ProcessName + "  ");
             p[i].WaitingTime = currentTime;
             
             currentTime += p[i].BurstTime;
             p[i].CompletionTime = currentTime;
-
+            
             p[i].setTurnAroundTime();
-
+            
             awt += p[i].WaitingTime;
             att += p[i].TurnAroundTime;
-
-            p[i].display("priority");
         }
+        System.out.println(currentTime + "\n");
+        System.out.println("ProcessName \t BurstTime \t WaitingTime \t TurnAroundTime \t CompletionTime ");
+
+        for(i=0;i<n;i++)
+            p[i].display("priority");
 
 
         awt /= n;

@@ -13,7 +13,7 @@ public class RoundRobin {
 
             p[i] = new Process();
 
-            p[i].ProcessName = i;
+            p[i].ProcessName = i+1;
             
             System.out.print("Enter Arrival Time : ");
 		    p[i].ArrivalTime = sc.nextInt();
@@ -56,6 +56,7 @@ public class RoundRobin {
 
         boolean flag = false;
 
+        System.out.println("Gantt Chart : ");
         while(!flag)
         {
             flag =true;
@@ -64,6 +65,7 @@ public class RoundRobin {
                 if(rt[i] > 0 && p[i].ArrivalTime <= currentTime)
                 {
                     flag = false;
+                    System.out.print(currentTime + "  P"+ p[i].ProcessName + "  ");
                     if(rt[i] > q)
                     {
                         currentTime += q;
@@ -80,6 +82,7 @@ public class RoundRobin {
                 //     currentTime++;
             }
         }
+        System.out.println(currentTime+ "\n");
 
         System.out.println("ProcessName \t ArrivalTime \t BurstTime \t WaitingTime \t TurnAroundTime \t CompletionTime ");
 
