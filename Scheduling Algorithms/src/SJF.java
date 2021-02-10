@@ -59,6 +59,8 @@ public class SJF {
 
         while(cnt != n)
         {
+            System.out.print(currentTime + "  P"  + "  ");
+
             for(i=0;i<n;i++)
             {
                 if(p[i].ArrivalTime <= currentTime  && rt[i] < minVal && rt[i] > 0)
@@ -68,6 +70,7 @@ public class SJF {
                     flag = true;
                 }
             }
+
 
             if(flag == false)
             {
@@ -98,6 +101,7 @@ public class SJF {
 
             currentTime++;
         }
+        System.out.println(currentTime);
 
         System.out.println("ProcessName \t ArrivalTime \t BurstTime \t WaitingTime \t TurnAroundTime \t CompletionTime ");
 

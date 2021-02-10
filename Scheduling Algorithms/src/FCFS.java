@@ -57,8 +57,7 @@ public class FCFS {
         int currentTime = 0;
         int i;
 
-        System.out.println("ProcessName \t ArrivalTime \t BurstTime \t WaitingTime \t TurnAroundTime \t CompletionTime ");
-        
+        System.out.println("Gantt Chart : ");
         for(i=0;i<n;i++)
         {
             if(currentTime != 0)
@@ -67,8 +66,9 @@ public class FCFS {
             else{
                 p[i].WaitingTime = currentTime;
 				currentTime = p[i].ArrivalTime;
-
             }
+
+            System.out.print(currentTime + "  P" + p[i].ProcessName + "  ");
             currentTime += p[i].BurstTime;
             
             p[i].setTurnAroundTime();
@@ -77,10 +77,14 @@ public class FCFS {
             att += p[i].TurnAroundTime;
 
             p[i].CompletionTime = currentTime;
+        }
+        System.out.println(currentTime);
 
+        System.out.println("ProcessName \t ArrivalTime \t BurstTime \t WaitingTime \t TurnAroundTime \t CompletionTime ");
+        for(i=0;i<n;i++)
+        {
             p[i].display("not priority");
         }
-
         awt /= n;
         att /= n;
 
