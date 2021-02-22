@@ -8,6 +8,7 @@ public class PassOne {
    public HashMap<String, OperandEntry> SYMTAB;
    public ArrayList<Integer> POOLTAB;
    public String currentLine;
+   public StringBuilder code;   // stores the final o/p code
 
     int LC = 0;
 	int pooltab_ptr = 0;
@@ -20,13 +21,14 @@ public class PassOne {
         POOLTAB = new ArrayList<>();
         LITTAB = new ArrayList<>();
         OPTAB = new OpcodeTable();
+        code = new StringBuilder();
    }
 
    public void parseCode(BufferedReader br) throws IOException {
     POOLTAB.add(pooltab_ptr);
     while((currentLine = br.readLine() ) != null)
     {
-        String[] words = currentLine.split("\\s+");    // this is used to split a sentence into an array of words
+        String[] words = currentLine.split("\\s+");    // this is used to split a sentence into an array of space separated words
         
         // if a label is present at the start of the statement
         if(!words[0].isEmpty())
@@ -36,7 +38,7 @@ public class PassOne {
         else{
 
             // If LTORG statement
-             if(words[1].equals("LTORG"))
+             if(words[1].equals("LTORG") || words[1].equals("END"))
             {
 
             }
@@ -58,7 +60,17 @@ public class PassOne {
             // If Imperative statement
             else if(OPTAB.getEntry(words[1]).isImperative())
             {
-
+                if(words[1].equals("STOP"))
+                {
+                    code.append(LC + "  ");
+                    code.append(OPTAB.getEntry(words[1])).append("\n");
+                    LC++;
+                }
+                else{
+                    String operands[] = words[1].split(",");
+                    //String val = "(IS," + OPTAB.getEntry(words[1]).getOpcode() + ")"; 
+                    code.append(LC + "  " + OPTAB.getEntry(words[1])).append("  ");
+                }
             }
         }
 
