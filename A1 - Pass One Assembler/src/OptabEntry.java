@@ -34,4 +34,12 @@ public class OptabEntry {
         return type.equals("AD");
     }
 
+    @Override
+	public String toString() {
+		if(type.equals("RG")) {
+			return "(" + opcode + ")";
+		}
+		return "(" + type + "," + String.format("%02d", opcode) + ")";
+	}
+
 }

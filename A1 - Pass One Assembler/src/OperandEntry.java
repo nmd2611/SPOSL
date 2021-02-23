@@ -31,4 +31,12 @@ public class OperandEntry{
 		this.index = index;
 		return this;
 	}
+
+	@Override
+	public String toString() {
+		if (literal.contains("="))
+			return "(L," + index + ")";
+		else
+			return "(S," + index + ")";
+	}
 }
