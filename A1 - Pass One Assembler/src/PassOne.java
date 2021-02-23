@@ -110,7 +110,7 @@ public class PassOne {
                     LC++;
                 }
                 else{
-                    String operands[] = words[1].split(",");
+                    String operands[] = words[2].split(",");
                     
                     code.append((!OPTAB.getEntry(words[1]).isAssemblyDirective()) ? (LC + "  ") : ("---  "));
 					code.append(OPTAB.getEntry(words[1])).append("  ");
@@ -163,6 +163,26 @@ public class PassOne {
    /*
     Reusables
    */
+
+  public String getPoolTable() {
+    StringBuilder sb = new StringBuilder();
+    for(int idx: POOLTAB) {
+        sb.append("#").append(idx).append("\n");
+    }
+    return sb.toString();
+}
+
+public String getLiteralTable() {
+    StringBuilder sb = new StringBuilder();
+    for (int i = 0; i < LITTAB.size(); i++) {
+        OperandEntry entry = LITTAB.get(i);
+        sb.append(i).append("\t")
+          .append(entry.getLiteral()).append("\t")
+          .append(entry.getAddress())
+          .append("\n");
+    }
+    return sb.toString();
+}
 
   public String getSymbolTable() {
     //		System.out.println("\n\n\tSymbol\tAddress");
