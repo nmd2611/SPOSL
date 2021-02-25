@@ -14,7 +14,7 @@ public class App {
         PassOne assembler = new PassOne();
 
         try{
-            file = new FileReader("/media/kalilinux/D8922BCB922BAD461/TE practicals/++SEM-II/SPOSL/A1 - Pass One Assembler/src/input/ip2.asm");
+            file = new FileReader("/media/kalilinux/D8922BCB922BAD461/TE practicals/++SEM-II/SPOSL/A1 - Pass One Assembler/src/input/ip.asm");
             br = new BufferedReader(file);
 
             System.out.println("File opened successfully");

@@ -50,6 +50,11 @@ public class PassOne {
             {
                 int ptr = POOLTAB.get(pooltab_ptr);
 
+                if (words[1].equals("END")) {
+					code.append(LC + "  ");
+					code.append(OPTAB.getEntry("END")).append("\n");
+				}
+
 				for (int j = ptr; j < littab_ptr; j++) {
 					LITTAB.set(j, LITTAB.get(j).setAddress(LC));
 					code.append(LC + "  ");
@@ -57,10 +62,8 @@ public class PassOne {
 					code.append(constantPair(LITTAB.get(j).getLiteral()) + "\n"); 	// (C,5)
 					LC++;
 				}
-				if (littab_ptr == ptr) {
-					code.append(LC + "  ");
-					code.append(OPTAB.getEntry("END")).append("\n");
-				}
+                
+				
 				if (!words[1].equals("END")) {
 					pooltab_ptr++;
 					POOLTAB.add(littab_ptr);	

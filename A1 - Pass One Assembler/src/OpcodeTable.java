@@ -34,6 +34,14 @@ public class OpcodeTable {
         OPTAB.put("DS", new OptabEntry("DL", 1));
         OPTAB.put("DC", new OptabEntry("DL", 2));
 
+        OPTAB.put("LT", new OptabEntry("CC", 1));
+		OPTAB.put("LE", new OptabEntry("CC", 2));
+		OPTAB.put("EQ", new OptabEntry("CC", 3));
+		OPTAB.put("GT", new OptabEntry("CC", 4));
+		OPTAB.put("GE", new OptabEntry("CC", 5));
+		OPTAB.put("ANY", new OptabEntry("CC", 6));
+		
+
     }
 
     public OptabEntry getEntry(String key)

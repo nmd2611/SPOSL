@@ -36,7 +36,7 @@ public class OptabEntry {
 
     @Override
 	public String toString() {
-		if(type.equals("RG")) {
+		if(type.equals("REG")) {
 			return "(" + opcode + ")";
 		}
 		return "(" + type + "," + String.format("%02d", opcode) + ")";
