@@ -59,7 +59,7 @@ public class SJF {
 
         while(cnt != n)
         {
-            System.out.print(currentTime + "  P"  + "  ");
+            //System.out.print(currentTime + "  P"  + "  ");
 
             for(i=0;i<n;i++)
             {
@@ -101,7 +101,7 @@ public class SJF {
 
             currentTime++;
         }
-        System.out.println(currentTime);
+        System.out.println();
 
         System.out.println("ProcessName \t ArrivalTime \t BurstTime \t WaitingTime \t TurnAroundTime \t CompletionTime ");
 

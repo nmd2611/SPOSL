@@ -30,7 +30,6 @@ public class PassOne {
     while((currentLine = br.readLine() ) != null)
     {
         String[] words = currentLine.split("\\s+");    // this is used to split a sentence into an array of space separated words
-        
         // if a label is present at the start of the statement
         if(!words[0].isEmpty())
         {
@@ -167,39 +166,39 @@ public class PassOne {
     Reusables
    */
 
-  public String getPoolTable() {
-    StringBuilder sb = new StringBuilder();
-    for(int idx: POOLTAB) {
-        sb.append("#").append(idx).append("\n");
-    }
-    return sb.toString();
-}
-
-public String getLiteralTable() {
-    StringBuilder sb = new StringBuilder();
-    for (int i = 0; i < LITTAB.size(); i++) {
-        OperandEntry entry = LITTAB.get(i);
-        sb.append(i).append("\t")
-          .append(entry.getLiteral()).append("\t")
-          .append(entry.getAddress())
-          .append("\n");
-    }
-    return sb.toString();
-}
-
-  public String getSymbolTable() {
-    //		System.out.println("\n\n\tSymbol\tAddress");
-            StringBuilder sb = new StringBuilder();
-            for (Entry<String, OperandEntry> entry : SYMTAB.entrySet()) {
-    //			System.out.println(
-    //					entry.getValue().getIndex() + "\t" + entry.getKey() + "\t" + entry.getValue().getAddress());
-                sb.append(entry.getValue().getIndex()).append("\t")
-                  .append(entry.getKey()).append("\t")
-                  .append(entry.getValue().getAddress())
-                  .append("\n");
-            }
-            return sb.toString();
+    public String getPoolTable() {
+        StringBuilder sb = new StringBuilder();
+        for(int idx: POOLTAB) {
+            sb.append("#").append(idx).append("\n");
         }
+        return sb.toString();
+    }
+
+    public String getLiteralTable() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < LITTAB.size(); i++) {
+            OperandEntry entry = LITTAB.get(i);
+            sb.append(i).append("\t")
+            .append(entry.getLiteral()).append("\t")
+            .append(entry.getAddress())
+            .append("\n");
+        }
+        return sb.toString();
+    }
+
+    public String getSymbolTable() {
+        //		System.out.println("\n\n\tSymbol\tAddress");
+                StringBuilder sb = new StringBuilder();
+                for (Entry<String, OperandEntry> entry : SYMTAB.entrySet()) {
+        //			System.out.println(
+        //					entry.getValue().getIndex() + "\t" + entry.getKey() + "\t" + entry.getValue().getAddress());
+                    sb.append(entry.getValue().getIndex()).append("\t")
+                    .append(entry.getKey()).append("\t")
+                    .append(entry.getValue().getAddress())
+                    .append("\n");
+                }
+                return sb.toString();
+    }
     
     public int expr(String str) {
         int temp = 0;
@@ -218,19 +217,19 @@ public String getLiteralTable() {
         return temp;
     }
     
-        public String constantPair(String literal) {
-            String value = literal.replace("=", "").replace("'", "");
-            return "(C," + value + ")";
-        }
+    public String constantPair(String literal) {
+        String value = literal.replace("=", "").replace("'", "");
+        return "(C," + value + ")";
+    }
     
-        public String constantPair(int value) {
-            return "(C," + value + ")";
-        }
+    public String constantPair(int value) {
+        return "(C," + value + ")";
+    }
     
-        public String literalPair(OperandEntry entry) {
-            int idx = LITTAB.indexOf(entry);
-            return "(L," + idx + ")";
-        }
+    public String literalPair(OperandEntry entry) {
+        int idx = LITTAB.indexOf(entry);
+        return "(L," + idx + ")";
+    }
 
 
 

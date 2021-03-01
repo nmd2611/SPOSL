@@ -79,7 +79,8 @@ public class FCFS {
             p[i].CompletionTime = currentTime;
         }
         System.out.println(currentTime);
-
+        System.out.println();
+        
         System.out.println("ProcessName \t ArrivalTime \t BurstTime \t WaitingTime \t TurnAroundTime \t CompletionTime ");
         for(i=0;i<n;i++)
         {
