@@ -9,7 +9,6 @@ public class App {
         FileReader file ;
         BufferedReader br;
         BufferedWriter bw;
-        String line;
         FileWriter fw;
         PassOne assembler = new PassOne();
 
